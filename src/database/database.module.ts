@@ -8,8 +8,9 @@ import configuration from '../config';
 @Module({
   imports: [
     MongooseModule.forRootAsync({
-      useFactory: (config: ConfigType<typeof configuration>) => {
-        const { db, password, username } = config.database;
+      useFactory: () => {
+        // const { db, password, username } = config.database;
+        console.log(process.env.MONGO_USERNAME);
         return {
           uri: `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@mentar.mixb2qn.mongodb.net/test`,
           user: process.env.MONGO_USERNAME,
@@ -17,20 +18,20 @@ import configuration from '../config';
           dbName: process.env.MONGO_DB,
         };
       },
-      inject: [configuration.KEY],
+      // inject: [configuration.KEY],
     }),
   ],
   providers: [
     {
       provide: 'MONGO',
-      useFactory: async (config: ConfigType<typeof configuration>) => {
+      useFactory: async () => {
         // const { db, password, username } = config.database;
         const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@mentar.mixb2qn.mongodb.net/test`;
         const client = new MongoClient(uri);
         await client.connect();
         return client.db(process.env.MONGO_DB);
       },
-      inject: [configuration.KEY],
+      // inject: [configuration.KEY],
     },
   ],
   exports: ['MONGO', MongooseModule],

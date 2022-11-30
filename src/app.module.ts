@@ -14,7 +14,6 @@ import { DatabaseModule } from './database/database.module';
       // De esta manera hacemos que lea el archivo .env segun el 'NODE_ENV' que ingresemos y que sea global para toda la aplicacion,
       envFilePath: enviroments[process.env.NODE_ENV] || '.env',
       // Con 'load' estamos cargando la configuración para que se pueda inyectar y asi podriamos leer las variables de entorno.
-      load: [configuration],
       isGlobal: true,
     }),
     UsersModule,
