@@ -1,4 +1,8 @@
-import { Inject, Injectable } from '@nestjs/common';
+import {
+  Inject,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import * as nodemailer from 'nodemailer';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
@@ -196,7 +200,7 @@ export class EmailService {
         </html>`,
       });
     } catch (error) {
-      console.log(error);
+      throw new InternalServerErrorException('Problema no controlado');
     }
   }
 
@@ -216,7 +220,7 @@ export class EmailService {
         ],
       });
     } catch (error) {
-      console.log(error);
+      throw new InternalServerErrorException('Problema no controlado');
     }
   }
 }
