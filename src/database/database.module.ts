@@ -8,30 +8,29 @@ import configuration from '../config';
 @Module({
   imports: [
     MongooseModule.forRootAsync({
-      useFactory: () => {
-        // const { db, password, username } = config.database;
-        console.log(process.env.MONGO_USERNAME);
+      useFactory: (config: ConfigType<typeof configuration>) => {
+        const { db, password, username } = config.database;
         return {
-          uri: `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@mentar.mixb2qn.mongodb.net/test`,
-          user: process.env.MONGO_USERNAME,
-          pass: process.env.MONGO_PASSWORD,
-          dbName: process.env.MONGO_DB,
+          uri: `mongodb+srv://${username}:${password}@mentar.mixb2qn.mongodb.net/test`,
+          user: username,
+          pass: password,
+          dbName: db,
         };
       },
-      // inject: [configuration.KEY],
+      inject: [configuration.KEY],
     }),
   ],
   providers: [
     {
       provide: 'MONGO',
-      useFactory: async () => {
-        // const { db, password, username } = config.database;
-        const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@mentar.mixb2qn.mongodb.net/test`;
+      useFactory: async (config: ConfigType<typeof configuration>) => {
+        const { db, password, username } = config.database;
+        const uri = `mongodb+srv://${username}:${password}@mentar.mixb2qn.mongodb.net/test`;
         const client = new MongoClient(uri);
         await client.connect();
-        return client.db(process.env.MONGO_DB);
+        return client.db(db);
       },
-      // inject: [configuration.KEY],
+      inject: [configuration.KEY],
     },
   ],
   exports: ['MONGO', MongooseModule],

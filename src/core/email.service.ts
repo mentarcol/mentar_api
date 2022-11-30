@@ -6,14 +6,18 @@ import configuration from '../config';
 
 @Injectable()
 export class EmailService {
+  constructor(
+    @Inject(configuration.KEY) private config: ConfigType<typeof configuration>,
+  ) {}
+
   createTransporter() {
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 465,
       secure: true,
       auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAIL_PASSWORD,
+        user: this.config.email.username,
+        pass: this.config.email.password,
       },
       tls: { rejectUnauthorized: false },
     });
