@@ -35,7 +35,6 @@ export class EmailService {
         from: 'Mentar Colombia <mentarcol@gmail.com>',
         to: user.email,
         subject: 'Acabas de recibir tu ASESORÍA INICIAL <3',
-        text: 'Hello world, https://youtu.be/LVbGBknrTwA',
         attachments: [
           {
             filename: 'Asesoría_inicial.pdf',
@@ -178,13 +177,13 @@ export class EmailService {
                        </table></td>
                      </tr>
                      <tr>
-                      <td class="es-m-p30" align="left" style="padding:0;Margin:0">
+                      <td align="left" style="padding:0;Margin:0">
                        <table cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                          <tr>
                           <td align="center" valign="top" style="padding:0;Margin:0;width:810px">
                            <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px">
                              <tr>
-                              <td align="center" class="es-m-p40" style="padding:0;Margin:0;font-size:0px"><img class="adapt-img" src="https://znksng.stripocdn.email/content/guids/CABINET_81518e70b1d1fa4bc27710bca21a91eb/images/foto.jpg" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="120"></td>
+                              <td align="center" class="es-m-txt-c" style="padding:0;Margin:0;font-size:0px"><img src="https://znksng.stripocdn.email/content/guids/CABINET_81518e70b1d1fa4bc27710bca21a91eb/images/foto.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" height="112"></td>
                              </tr>
                            </table></td>
                          </tr>
