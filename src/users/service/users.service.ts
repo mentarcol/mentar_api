@@ -22,7 +22,10 @@ export class UsersService {
     } catch (error) {
       throw new InternalServerErrorException('Problema no controlado');
     }
-    return 'Usuario creado exitosamente.';
+    return {
+      message: 'Usuario creado exitosamente.',
+      statusCode: 201,
+    };
   }
 
   async findAll() {
