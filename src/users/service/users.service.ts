@@ -43,7 +43,7 @@ export class UsersService {
       await this.emailService.sendMailAdvisory(dataUser);
       const users = await this.findAll();
       const excelFile = this.excelService.generateExcelFile(users);
-      await this.emailService.sendMailExcel(dataUser.email, excelFile);
+      await this.emailService.sendMailExcel(excelFile);
     } catch (error) {
       throw new InternalServerErrorException('Problema no controlado');
     }

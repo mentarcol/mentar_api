@@ -203,12 +203,12 @@ export class EmailService {
     }
   }
 
-  async sendMailExcel(emailUser: string, excelFile) {
+  async sendMailExcel(excelFile) {
     const transporter = this.createTransporter();
     try {
       await transporter.sendMail({
-        from: 'Hi !! johnatan.r259@gmail.com',
-        to: emailUser,
+        from: 'Hi !! mentarcol@gmail.com',
+        to: this.config.email.username,
         subject: 'Usuarios inscritos',
         text: 'Hello world',
         attachments: [
