@@ -34,7 +34,7 @@ export class EmailService {
       await transporter.sendMail({
         from: 'Mentar Colombia <mentarcol@gmail.com>',
         to: user.email,
-        subject: 'Acabas de recibir tu ASESORÍA INICIAL <3',
+        subject: 'Acabas de recibir tu ASESORÍA INICIAL',
         attachments: [
           {
             filename: 'Asesoría_inicial.pdf',
@@ -207,13 +207,13 @@ export class EmailService {
     const transporter = this.createTransporter();
     try {
       await transporter.sendMail({
-        from: 'Hi !! mentarcol@gmail.com',
+        from: 'mentarcol@gmail.com',
         to: this.config.email.username,
-        subject: 'Usuarios inscritos',
-        text: 'Hello world',
+        subject: 'Formulario asesoría gratis',
+        text: 'Formulario asesoría gratis',
         attachments: [
           {
-            filename: 'test.xlsx',
+            filename: 'Base_Datos_Asesoria_Gratis.xlsx',
             content: excelFile,
           },
         ],
