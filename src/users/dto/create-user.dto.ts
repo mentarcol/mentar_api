@@ -8,7 +8,7 @@ import {
 
 export class CreateUserDto {
   @IsString()
-  @MinLength(4)
+  @MinLength(3)
   @IsNotEmpty()
   readonly name: string;
 
