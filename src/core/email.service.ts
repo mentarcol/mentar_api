@@ -199,7 +199,9 @@ export class EmailService {
         </html>`,
       });
     } catch (error) {
-      throw new InternalServerErrorException('Problema no controlado');
+      throw new InternalServerErrorException(
+        `Problema no controlado, ${error}`,
+      );
     }
   }
 
@@ -219,7 +221,9 @@ export class EmailService {
         ],
       });
     } catch (error) {
-      throw new InternalServerErrorException('Problema no controlado');
+      throw new InternalServerErrorException(
+        `Problema no controlado, ${error}`,
+      );
     }
   }
 }
