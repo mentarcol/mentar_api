@@ -33,7 +33,7 @@ export class UsersService {
     let users: User[] = [];
     try {
       users = await this.userModel.find({}, { _id: 0, __v: 0 }).lean();
-    } catch (error) {
+    } catch (error) {  
       console.log(error);
       throw new InternalServerErrorException('Problema no controlado');
     }
