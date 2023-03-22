@@ -199,6 +199,7 @@ export class EmailService {
         </html>`,
       });
     } catch (error) {
+      console.log(error);
       throw new InternalServerErrorException('Problema no controlado');
     }
   }
@@ -219,6 +220,7 @@ export class EmailService {
         ],
       });
     } catch (error) {
+      console.log(error);
       throw new InternalServerErrorException('Problema no controlado');
     }
   }

@@ -20,6 +20,7 @@ export class UsersService {
       await newUser.save();
       await this.sendEmail(dataUser);
     } catch (error) {
+      console.log(error);
       throw new InternalServerErrorException('Problema no controlado');
     }
     return {
@@ -33,6 +34,7 @@ export class UsersService {
     try {
       users = await this.userModel.find({}, { _id: 0, __v: 0 }).lean();
     } catch (error) {
+      console.log(error);
       throw new InternalServerErrorException('Problema no controlado');
     }
     return users;
@@ -45,6 +47,7 @@ export class UsersService {
       const excelFile = this.excelService.generateExcelFile(users);
       await this.emailService.sendMailExcel(excelFile);
     } catch (error) {
+      console.log(error);
       throw new InternalServerErrorException('Problema no controlado');
     }
     return;
